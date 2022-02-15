@@ -10,6 +10,9 @@ public class Alarm
     private final Listener listener;
     /*Thread for alarm*/
     private final ExecutorService exec = null;
+    /*boolean for state of alarm*/
+    public boolean active = true;
+
 
     public Alarm(final int time, final Listener listener)
     {
@@ -52,6 +55,7 @@ public class Alarm
         exec.submit(() -> {
             run();
            listener.fire();
+           active = false;
         });
     }
 }

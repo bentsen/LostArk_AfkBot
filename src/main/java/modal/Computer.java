@@ -9,7 +9,6 @@ public enum Computer
     INSTANCE;
 
 
-
     /*Robot to communicate with mouse and keyboard*/
     private final Robot bot = createRobot();
     /*Toolkit to get operating system settings*/
@@ -30,6 +29,12 @@ public enum Computer
         {
             e.printStackTrace();
         }
+        return bot;
+    }
+
+    /*return Robot*/
+    public Robot getBot()
+    {
         return bot;
     }
 
