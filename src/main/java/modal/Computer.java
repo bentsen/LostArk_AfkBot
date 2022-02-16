@@ -1,7 +1,11 @@
 package modal;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
+
+/*
+ * Name: Mikkel Bentsen
+ * Date: 2/16/2022
+ */
 
 public enum Computer
 {
@@ -31,13 +35,12 @@ public enum Computer
         }
         return bot;
     }
-
     /*return Robot*/
     public Robot getBot()
     {
         return bot;
     }
-
+    /*return the Dimension*/
     public Dimension getDisplay()
     {
         return MAIN_DISPLAY;
