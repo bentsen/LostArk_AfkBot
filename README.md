@@ -15,4 +15,4 @@ The bot will Automaticly be responsible for keeping you "active" in the game so 
 
 ## In mind for the future
 
-Better front end layout
+exe version 
