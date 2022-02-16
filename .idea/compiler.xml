@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="LostArk" target="16" />
+      <module name="LostArk" target="15" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
