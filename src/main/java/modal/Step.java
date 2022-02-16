@@ -36,12 +36,12 @@ public enum Step
             while(!isInterrupted())
             {
                 System.out.println("forfra");
-                Alarm alarm = new Alarm(20, () -> move());
+                Alarm alarm = new Alarm(900, () -> move());
                 System.out.println("alarm startet");
                 alarm.start();
 
                 try {
-                    Thread.sleep(25000);
+                    Thread.sleep(900000);
                 } catch (InterruptedException e) {
                     alarm.cancel();
                     e.printStackTrace();
@@ -78,7 +78,7 @@ public enum Step
         int width = (int) (computer.getDisplay().getWidth() / 2);
         int height = (int) (computer.getDisplay().getHeight() / 2);
 
-        return new Point(width - 100,height);
+        return new Point(width - 100,height - 20);
     }
     /*Point of right position*/
     public Point goRight()
@@ -86,7 +86,7 @@ public enum Step
         int width = (int) (computer.getDisplay().getWidth() / 2);
         int height = (int) (computer.getDisplay().getHeight() / 2);
 
-        return new Point(width + 100,height);
+        return new Point(width + 100,height- 20);
     }
     /*Check if Step is ready to begin session*/
     public boolean isReady()
