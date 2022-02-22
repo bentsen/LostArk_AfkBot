@@ -24,9 +24,6 @@ public enum Step
     /*Boolean for state of left*/
     private boolean left = false;
     /*Point for right location*/
-    private Point rightPoint = goRight();
-    /*Point for left location*/
-    private Point leftPoint = goLeft();
 
     /*Sequence of bot*/
     public void afkDeny()
@@ -36,7 +33,7 @@ public enum Step
             while(!isInterrupted())
             {
                 System.out.println("forfra");
-                Alarm alarm = new Alarm(900, () -> move());
+                Alarm alarm = new Alarm(() -> move());
                 System.out.println("alarm startet");
                 alarm.start();
 
@@ -49,44 +46,24 @@ public enum Step
             }
         });
     }
-    /*Check and move to right or left*/
+    /**/
     public void move()
     {
-        if(right && !left)
-        {
-            computer.getBot().mouseMove(rightPoint.x, rightPoint.y);
-            computer.getBot().delay(2000);
-            computer.getBot().mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            computer.getBot().mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-            right = false;
-            left = true;
-        }
+        /*Place the center of rectangle in the center of screen*/
+        int height = (int) computer.getDisplay().getHeight() + 100/2;
+        int width = (int) computer.getDisplay().getWidth() - 100/2;
 
-        else if (left && !right)
-        {
-            computer.getBot().mouseMove(leftPoint.x, leftPoint.y);
-            computer.getBot().delay(2000);
-            computer.getBot().mousePress(InputEvent.BUTTON1_DOWN_MASK);
-            computer.getBot().mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-            right = true;
-            left = false;
-        }
-    }
-    /*Point of left position*/
-    public Point goLeft()
-    {
-        int width = (int) (computer.getDisplay().getWidth() / 2);
-        int height = (int) (computer.getDisplay().getHeight() / 2);
+        /*Create rectangle with size and location*/
+        new Rectangle(100,100).setLocation(width,height);
 
-        return new Point(width - 100,height - 20);
-    }
-    /*Point of right position*/
-    public Point goRight()
-    {
-        int width = (int) (computer.getDisplay().getWidth() / 2);
-        int height = (int) (computer.getDisplay().getHeight() / 2);
+        /*Getting random numbers 0 - 100 and convert to a screen location inside rectangle*/
+        int x = (int) ((Math.random() * (100 - 0)) + 0) + width;
+        int y = (int) ((Math.random() * (100 - 0)) + 0) + height;
 
-        return new Point(width + 100,height- 20);
+        computer.getBot().mouseMove(x,y);
+        computer.getBot().delay(2000);
+        computer.getBot().mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        computer.getBot().mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
     }
     /*Check if Step is ready to begin session*/
     public boolean isReady()

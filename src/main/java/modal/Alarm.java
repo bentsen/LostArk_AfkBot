@@ -16,9 +16,9 @@ public class Alarm
     public boolean active = true;
 
 
-    public Alarm(final int time, final Listener listener)
+    public Alarm(final Listener listener)
     {
-        this.time = time;
+        this.time = (int) ((Math.random() * (900 - 600)) + 600);
         this.listener = listener;
     }
     /*Countdown method*/

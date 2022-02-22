@@ -20,7 +20,6 @@ import java.io.File;
 
 public class GUI extends Application
 {
-
     public static void main(String[] args)
     {
         assert args != null;
