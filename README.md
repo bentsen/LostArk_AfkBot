@@ -3,7 +3,7 @@
 
 ## About the bot
 
-The bot will Automaticly be responsible for keeping you "active" in the game so you wont get timed out for being afk. It will do so by switching between going left and right every 15 minutes. This will ensure that you character will stay in the same position and not move go out for some crazy adventure. 
+The bot will Automaticly be responsible for keeping you "active" in the game so you wont get timed out for being afk. It will do so by clicking in a random location in an area of 100 x 100 pixels every 10 to 15 minutes. This will ensure that you character will stay in the same position and not move go out for some crazy adventure.
 
 ## How to use the bot
 
